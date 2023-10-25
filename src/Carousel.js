@@ -42,9 +42,9 @@ const Carousel = ({images}) => {
             y: 0,
         },
         animate: {
-            y: -10,
+            y: 0,
             scale: 1.3,
-            transition: { type: "spring", stiffness: 1000, damping: "10" },
+            transition: { stiffness: 1000, damping: "10" },
         },
         hover: {
             scale: 1.1,
@@ -70,8 +70,8 @@ const Carousel = ({images}) => {
     }
 
     return (
-        <div className="carousel">
-            <div className="carousel-images">
+        <div className="carousel" role="region" aria-roledescription="carousel" aria-label="Cat Facts">
+            <div className="carousel-images" role="group" aria-roledescription="slide">
                 <AnimatePresence>
                     <motion.img
                         key={currentIndex}
@@ -79,15 +79,17 @@ const Carousel = ({images}) => {
                         variants={slideVariants}
                         initial={direction === "right" ? "hiddenRight" : "hiddenLeft"}
                         animate="visible"
-                        exit="exit" />
+                        exit="exit"
+                        alt={`Image ${currentIndex + 1}`} />
                 </AnimatePresence>
 
-                <div className="slide_direction">
-                    <motion.div
+                <div className="slide_direction" role="group" aria-label="Slide controls">
+                    <motion.button
                         variants={sliderVariants}
                         whileHover="hover"
                         className="left"
-                        onClick={handlePrevious}>
+                        onClick={handlePrevious}
+                        aria-label="Previous image">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="20"
@@ -95,12 +97,13 @@ const Carousel = ({images}) => {
                             width="20">
                             <path d="M400 976 0 576l400-400 56 57-343 343 343 343-56 57Z" />
                         </svg>
-                    </motion.div>
-                    <motion.div
+                    </motion.button>
+                    <motion.button
                         variants={sliderVariants}
                         whileHover="hover"
                         className="right"
-                        onClick={handleNext}>
+                        onClick={handleNext}
+                        aria-label="Next image">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             height="20"
@@ -108,21 +111,22 @@ const Carousel = ({images}) => {
                             width="20">
                             <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
                         </svg>
-                    </motion.div>
+                    </motion.button>
                 </div>
             </div>
 
-            <div className="carousel-indicator">
+            <div className="carousel-indicator" role="group" aria-label="Slide indicators">
                 {images.map((_, index) => (
-                    <motion.div
+                    <motion.button
                         key={index}
                         className={`dot ${currentIndex === index ? "active" : ""}`}
                         onClick={() => handleDotClick(index)}
                         initial="initial"
                         animate={currentIndex === index ? "animate" : ""}
                         whileHover="hover"
-                        variants={dotsVariants}>
-                    </motion.div>
+                        variants={dotsVariants}
+                        aria-label={`${currentIndex === index ? "Current" : "Show"} Image ${index + 1} of ${images.length}`}>
+                    </motion.button>
                 ))}
             </div>
         </div>

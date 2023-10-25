@@ -31,16 +31,19 @@
 .left,
 .right {
     background-color: #fb666675;
+    border: 0;
     border-radius: 50%;
     bottom: 0;
     color: #fff;
-    height: 25px;
+    cursor: pointer;
+    display: block;
+    height: 40px;
     margin: 0 20px;
     margin: auto 10px;
     padding: 10px 8px 8px 13px;
     position: absolute;
     top: 0;
-    width: 25px;
+    width: 40px;
 }
 
 .left {
@@ -60,7 +63,9 @@
 
 .dot {
     background-color: #333;
+    border: 0;
     border-radius: 50%;
+    cursor: pointer;
     height: 15px;
     width: 15px;
 }
