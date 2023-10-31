@@ -3,7 +3,7 @@
 
 %shiny {
     color: v.$theme-color-primary;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .App-header {
@@ -21,44 +21,53 @@
     max-width: 650px;
     overflow: hidden;
     position: relative;
-}
 
-.carousel-images img {
-    border: #ff00008e solid 2px;
-    border-radius: 8px;
-    height: 99%;
-    width: 99%;
+    img {
+        border: 2px solid v.$theme-color-primary;
+        border-radius: 8px;
+        height: 99%;
+        width: 99%;
+    }
 }
 
 .slide_direction {
     display: flex;
     justify-content: space-between;
-}
 
-.left,
-.right {
-    background-color: #fb666675;
-    border: 0;
-    border-radius: 50%;
-    bottom: 0;
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    height: 40px;
-    margin: 0 20px;
-    margin: auto 10px;
-    padding: 10px 8px 8px 13px;
-    position: absolute;
-    top: 0;
-    width: 40px;
-}
+    button {
+        background-color: v.$theme-color-primary;
+        border: 1px solid v.$theme-color-primary;
+        border-radius: 50%;
+        bottom: 0;
+        color: v.$white;
+        cursor: pointer;
+        display: block;
+        height: 40px;
+        margin: 0 20px;
+        margin: auto 10px;
+        padding: 10px 8px 8px 13px;
+        position: absolute;
+        top: 0;
+        width: 40px;
 
-.left {
-    left: 0;
-}
+        &:hover,
+        &:focus {
+            background-color: rgba(v.$theme-color-primary, .75);
+            border-color: v.$dot-color;
+        }
 
-.right {
-    right: 0;
+        svg path {
+            fill: v.$white;
+        }
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: 0;
+        }
+    }
 }
 
 .carousel-indicator {
@@ -66,17 +75,24 @@
     gap: 20px;
     justify-content: center;
     margin-top: 20px;
-}
 
-.dot {
-    background-color: #333;
-    border: 0;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-}
+    .dot {
+        background-color: v.$dot-color;
+        border: 1px solid v.$dot-color;
+        border: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
 
-.active {
-    background-color: #fa2020;
+        &:hover,
+        &:focus {
+            background-color: rgba(v.$theme-color-primary, .75);
+            border-color: v.$dot-color;
+        }
+
+        &.active {
+            background-color: v.$theme-color-primary;
+        }
+    }
 }
