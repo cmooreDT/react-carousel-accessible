@@ -69,8 +69,8 @@ const Carousel = ({images}) => {
     }
 
     return (
-        <div className="carousel" role="region" aria-roledescription="carousel" aria-label="Cat Facts">
-            <div className="carousel-images" role="group" aria-roledescription="slide">
+        <div className="carousel" role="region" aria-roledescription="carousel" aria-label="Kittens" aria-labelledby="carousel-heading">
+            <div className="carousel-images" role="group" aria-roledescription="slide" aria-live="polite">
                 <AnimatePresence>
                     <motion.img
                         key={currentIndex}

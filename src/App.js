@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-            <h1>Accessible Image Carousel using React and Framer Motion</h1>
+            <h1 id="carousel-heading">Accessible Image Carousel using React and Framer Motion</h1>
             </header>
             <main>
                 <Carousel images={images} />
