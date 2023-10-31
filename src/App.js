@@ -1,5 +1,5 @@
 import React from "react";
-import './App.css';
+import './App.scss';
 import Carousel from './Carousel';
 import images from "./slides.json";
 

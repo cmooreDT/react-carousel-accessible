@@ -1,6 +1,13 @@
+@use './shared/_colors.scss' as v;
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap");
 
+%shiny {
+    color: v.$theme-color-primary;
+    text-transform: uppercase;
+}
+
 .App-header {
+    @extend %shiny;
     font-family: "Oswald", sans-serif;
     font-size: 1rem;
     padding-bottom: 2rem;
